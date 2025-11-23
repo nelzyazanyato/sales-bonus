@@ -20,7 +20,7 @@ function calculateSimpleRevenue(purchase, _product) {
  * @returns {number}
  */
 function calculateBonusByProfit(index, total, seller) {
-    const { profit } = seller;
+  const { profit } = seller;
 
   if (index === 0) {
     return profit * 0.15;
@@ -110,7 +110,8 @@ function analyzeSalesData(data, options) {
         if (!seller.products_sold[item.sku]) {
           seller.products_sold[item.sku] = 0;
         }
-        // По артикулу товара увеличить его проданное количество у продавца
+
+        seller.products_sold[item.sku] += item.quantity; // По артикулу товара увеличить его проданное количество у продавца
       });
     }
   });
